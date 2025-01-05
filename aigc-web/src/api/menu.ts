@@ -47,7 +47,6 @@ export function fetchMenus() {
       ]
     },
     {
-      server_custom_roles: ["wmvm", "admin"],
       path: "/config-center",
       name: "configCenter",
       meta: {
@@ -58,7 +57,6 @@ export function fetchMenus() {
       },
       children: [
         {
-          server_custom_roles: ["wmvm", "admin"],
           path: "/site", // The midline path complies with SEO specifications
           name: "siteConfig",
           meta: {
@@ -68,7 +66,6 @@ export function fetchMenus() {
           }
         },
         {
-          server_custom_roles: ["wmvm", "admin"],
           path: "/createSiteConfig", // The midline path complies with SEO specifications
           name: "createSiteConfig",
           hidden: true,
@@ -79,7 +76,6 @@ export function fetchMenus() {
           }
         },
         {
-          server_custom_roles: ["wmvm", "admin"],
           path: "/editSiteConfig",
           name: "editSiteConfig",
           hidden: true,
@@ -90,7 +86,6 @@ export function fetchMenus() {
           }
         },
         {
-          server_custom_roles: ["wmvm", "admin"],
           path: "/ai", // The midline path complies with SEO specifications
           name: "aiConfig",
           meta: {
@@ -100,7 +95,6 @@ export function fetchMenus() {
           }
         },
         {
-          server_custom_roles: ["wmvm", "admin"],
           path: "/createAiConfig", // The midline path complies with SEO specifications
           name: "createAiConfig",
           hidden: true,
@@ -111,7 +105,6 @@ export function fetchMenus() {
           }
         },
         {
-          server_custom_roles: ["wmvm", "admin"],
           path: "/editAiConfig",
           name: "editAiConfig",
           hidden: true,
@@ -122,7 +115,6 @@ export function fetchMenus() {
           }
         },
         {
-          server_custom_roles: ["wmvm", "admin"],
           path: "/prompt", // The midline path complies with SEO specifications
           name: "promptConfig",
           meta: {
@@ -132,7 +124,6 @@ export function fetchMenus() {
           }
         },
         {
-          server_custom_roles: ["wmvm", "admin"],
           path: "/createPromptConfig", // The midline path complies with SEO specifications
           name: "createPromptConfig",
           hidden: true,
@@ -143,7 +134,6 @@ export function fetchMenus() {
           }
         },
         {
-          server_custom_roles: ["wmvm", "admin"],
           path: "/edit", // The midline path complies with SEO specifications
           name: "editPromptConfig",
           hidden: true,
@@ -156,7 +146,6 @@ export function fetchMenus() {
       ]
     },
     // {
-    //   server_custom_roles: ["wmvm"],
     //   path: "/data-analysis",
     //   name: "dataAnalysis",
     //   meta: {
@@ -167,7 +156,6 @@ export function fetchMenus() {
     //   },
     //   children: [
     //     {
-    //       server_custom_roles: ["wmvm"],
     //       path: "/taskAnalysis",
     //       name: "taskAnalysis",
     //       meta: {

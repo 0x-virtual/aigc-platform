@@ -190,19 +190,6 @@ export function queryCurrentTeamSitesList(params?: GetConfigListQuery) {
         }
     );
 }
-
-export function queryCurrentTeamConfig(params?: GetConfigListQuery) {
-    return axios.get<PolicyListRes>(
-        `${Constant.API_PREFIX}/config/site/current-team-configs`,
-        {
-            params,
-            paramsSerializer: (obj) => {
-                return qs.stringify(obj);
-            },
-        }
-    );
-}
-
 export function parseAccount(accountString: string) {
     if (accountString) {
         return accountString
