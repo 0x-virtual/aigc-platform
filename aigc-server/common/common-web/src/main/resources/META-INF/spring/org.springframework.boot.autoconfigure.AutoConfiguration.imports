@@ -1,0 +1,5 @@
+org.virtual.common.web.config.CaptchaConfig
+org.virtual.common.web.config.FilterConfig
+org.virtual.common.web.config.I18nConfig
+org.virtual.common.web.config.ResourcesConfig
+org.virtual.common.web.config.UndertowConfig

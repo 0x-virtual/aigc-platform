@@ -1,0 +1,10 @@
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+*.idea
+.pnpm-store
+*..pnpm-store
+application*.yaml
+aigc-server/bootstrap/src/main/resources/application-dev.yml
