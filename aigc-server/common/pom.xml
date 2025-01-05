@@ -18,6 +18,7 @@
         <module>common-web</module>
         <module>common-json</module>
         <module>common-entity</module>
+        <module>common-kafka</module>
     </modules>
 
     <artifactId>common</artifactId>

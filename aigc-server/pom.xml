@@ -36,6 +36,7 @@
         <lombok.version>1.18.34</lombok.version>
         <bouncycastle.version>1.76</bouncycastle.version>
         <justauth.version>1.16.6</justauth.version>
+        <kafka.version>3.2.4</kafka.version>
         <!-- 离线IP地址定位库 -->
         <ip2region.version>2.7.0</ip2region.version>
 
@@ -148,6 +149,12 @@
             </dependency>
 
             <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+                <version>${springdoc.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>com.github.therapi</groupId>
                 <artifactId>therapi-runtime-javadoc</artifactId>
                 <version>${therapi-javadoc.version}</version>
@@ -250,11 +257,10 @@
                 <artifactId>s3-transfer-manager</artifactId>
                 <version>${aws.sdk.version}</version>
             </dependency>
-            <!--短信sms4j-->
             <dependency>
-                <groupId>org.virtual.sms4j</groupId>
-                <artifactId>sms4j-spring-boot-starter</artifactId>
-                <version>${sms4j.version}</version>
+                <groupId>org.springframework.kafka</groupId>
+                <artifactId>spring-kafka</artifactId>
+                <version>${kafka.version}</version>
             </dependency>
 
             <dependency>
@@ -329,18 +335,6 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.virtual</groupId>
-                <artifactId>admin-api</artifactId>
-                <version>${revision}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.virtual</groupId>
-                <artifactId>code-generator-api</artifactId>
-                <version>${revision}</version>
             </dependency>
 
             <dependency>

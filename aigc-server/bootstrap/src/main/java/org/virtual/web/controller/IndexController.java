@@ -16,6 +16,6 @@ public class IndexController {
 
     @GetMapping("/")
     public String index() {
-        return StringUtils.format("欢迎 AIGC", appConfig.getName(), appConfig.getVersion());
+        return StringUtils.format("欢迎使用 AIGC");
     }
 }

@@ -73,6 +73,11 @@
                 <version>${revision}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.virtual</groupId>
+                <artifactId>common-kafka</artifactId>
+                <version>${revision}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

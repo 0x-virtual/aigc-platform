@@ -1,6 +1,7 @@
 package org.virtual.ai.service.impl;
 
 import cn.hutool.core.lang.Pair;
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -9,6 +10,7 @@ import org.virtual.business.common.entity.ConfigPromptEntity;
 import org.virtual.business.common.entity.ConfigSite;
 import org.virtual.business.common.entity.MediaTask;
 import org.virtual.business.common.entity.MediaTaskGroup;
+import org.virtual.common.kafka.KafkaProducer;
 import org.virtual.common.mybatis.core.page.PageQuery;
 import org.virtual.common.mybatis.core.page.TableDataInfo;
 import org.virtual.ai.domain.bo.CreateMediaTaskGroupRequest;
@@ -34,16 +36,12 @@ public class MediaServiceImpl implements MediaTaskGroupService {
     private final MediaTaskMapper mediaTaskMapper;
     private final ConfigPromptMapper configPromptMapper;
     private final ConfigSiteMapper configSiteMapper;
+    private final KafkaProducer kafkaProducer;
 
 
     private LambdaQueryWrapper<MediaTaskGroup> buildQueryWrapper(MediaTaskGroup bo) {
         Map<String, Object> params = bo.getParams();
         LambdaQueryWrapper<MediaTaskGroup> lqw = Wrappers.lambdaQuery();
-        //lqw.like(StringUtils.isNotBlank(bo.getTestKey()), TestDemo::getTestKey, bo.getTestKey());
-        //lqw.eq(StringUtils.isNotBlank(bo.getValue()), TestDemo::getValue, bo.getValue());
-        //lqw.between(params.get("beginCreateTime") != null && params.get("endCreateTime") != null,
-        //    TestDemo::getCreateTime, params.get("beginCreateTime"), params.get("endCreateTime"));
-        //lqw.orderByAsc(TestDemo::getId);
         return lqw;
     }
 
@@ -77,6 +75,8 @@ public class MediaServiceImpl implements MediaTaskGroupService {
 
     @Override
     public MediaTaskGroup create(CreateMediaTaskGroupRequest request) {
+
+
         ConfigPromptEntity configPromptEntity = configPromptMapper.selectById(request.getPromptId());
         ConfigSite configSite = configSiteMapper.selectById(request.getSiteId());
         MediaTaskGroup entity = new MediaTaskGroup();
@@ -99,7 +99,17 @@ public class MediaServiceImpl implements MediaTaskGroupService {
             mediaTasks.add(mediaTask);
         }
         mediaTaskMapper.insertBatch(mediaTasks);
+
+        sendKafka(mediaTasks, entity);
         return entity;
     }
 
+    public void sendKafka(List<MediaTask> mediaTasks, MediaTaskGroup mediaTaskGroup) {
+        for (MediaTask mediaTask : mediaTasks) {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("task", mediaTask);
+            jsonObject.put("group", mediaTaskGroup);
+            kafkaProducer.sendTask(jsonObject);
+        }
+    }
 }
