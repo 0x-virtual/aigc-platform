@@ -50,7 +50,6 @@
             </dependency>
 
 
-
             <!-- web服务 -->
             <dependency>
                 <groupId>org.virtual</groupId>
@@ -66,10 +65,15 @@
                 <version>${revision}</version>
             </dependency>
 
-
             <dependency>
                 <groupId>org.virtual</groupId>
                 <artifactId>common-entity</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.virtual</groupId>
+                <artifactId>executor</artifactId>
                 <version>${revision}</version>
             </dependency>
 

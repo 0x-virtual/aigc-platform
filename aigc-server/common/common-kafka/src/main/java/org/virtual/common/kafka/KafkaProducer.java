@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
-import org.springframework.util.concurrent.ListenableFuture;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -20,7 +19,7 @@ public class KafkaProducer {
     private KafkaTemplate<String, String> kafkaTemplate;
 
 
-    @Value("${spring.kafka.producer.task_topic:task_topic}")
+    @Value("${spring.kafka.producer.topic_task}")
     private String kafkaTaskTopic;
 
     public String sendTask(JSONObject message) {

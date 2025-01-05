@@ -342,6 +342,16 @@
                 <artifactId>user-api</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>org.virtual</groupId>
+                <artifactId>executor</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.virtual</groupId>
+                <artifactId>etl</artifactId>
+                <version>${revision}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

@@ -22,11 +22,17 @@
             <artifactId>mysql-connector-j</artifactId>
         </dependency>
 
-
-        <!--  demo模块  -->
         <dependency>
             <groupId>org.virtual</groupId>
             <artifactId>user-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.virtual</groupId>
+            <artifactId>executor</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.virtual</groupId>
+            <artifactId>etl</artifactId>
         </dependency>
 
         <dependency>
