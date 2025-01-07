@@ -1,6 +1,9 @@
 ######################################################################
 # Build Tools
-
+mysql
+mysqlBackup
+halo2
+halo.md
 .gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar
